@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://material-icc.github.oi/material-icc/sitemap.xml

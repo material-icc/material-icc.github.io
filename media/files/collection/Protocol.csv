@@ -1,0 +1,33 @@
+﻿Attribute,Type,Description
+pid,pid,Identificador único
+label,label,Nombre visible
+Tipo_de_publicación,text,Categoría bibliográfica a la que pertenece la publicación.
+Autoría,text,"Persona, colectivo o entidad responsable de la obra."
+Tipo_de_autoría,text,Función o relación de la autoría con la publicación.
+Número_o_volumen,text,"Número de entrega, tomo o volumen de una publicación."
+Subtítulo,text,Título complementario de la publicación.
+Colección,text,Serie o colección editorial a la que pertenece.
+Editorial_1,text,Editorial o entidad principal responsable de la publicación.
+Editorial_2,text,Segunda editorial o entidad participante en la publicación.
+Año,date,Año de publicación de la edición registrada.
+Ciudad,text,Ciudad donde fue publicada la edición.
+País,text,País de publicación de la edición.
+Edición,text,Número o características de la edición.
+Tiraje,text,Cantidad de ejemplares producidos en la edición.
+Encuadernación,text,Tipo de encuadernación o acabado físico de la publicación.
+Dimensiones,text,Medidas físicas de la publicación.
+Número_de_páginas,text,Extensión de la publicación expresada en páginas.
+Idioma,text,Idioma o idiomas del contenido de la publicación.
+ISBN,text,(Número Internacional Normalizado del Libro) identifica libros y obras monográficas únicas
+ISSN,text,"(Número Internacional Normalizado de Publicaciones Seriadas) identifica revistas, periódicos y publicaciones periódicas"
+Original_firmado,text,Indica si el ejemplar está firmado por su autor o responsable.
+Enumerado,text,Si el material tiene un número específico dentro del tiraje
+Consulta,text,Este material puede ser de consulta abierta o supervisada
+Resumen,text,Sintesis comercial del material
+Tipo de publicación,text,Imported
+Tipo de autoría,text,Imported
+Número o volumen,text,Imported
+Editorial 1,text,Imported
+Editorial 2,text,Imported
+Número de páginas,text,Imported
+Original firmado,text,Imported
