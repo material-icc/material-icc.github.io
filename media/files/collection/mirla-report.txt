@@ -1,13 +1,13 @@
 ==========================================
 MIRLA COLLECTION GENERATOR - HEALTH REPORT
-Date: 4/11/2026, 5:12:54 p. m.
+Date: 6/11/2026, 2:17:13 p. m.
 ==========================================
 
 [SUCCESS] Build completed perfectly. No errors or warnings detected.
 
 ==========================================
 [Mirla Plugin] Starting Generation & Validation...
-[Mirla Plugin] Copied OpenSeadragon icons to D:\Users\Acer\Documents\Publii\sites\material\output\media\plugins\mirla\osd_icons
+[Mirla Plugin] Copied OpenSeadragon icons to D:\Users\Acer\Documents\Publii\sites\material\preview\media\plugins\mirla\osd_icons
 [Mirla Plugin] Loaded Main Protocol Schema.
 [Mirla Plugin] NOTICE: No images found for pid: 'MAT-0001'
 [Mirla Plugin] NOTICE: No images found for pid: 'MAT-0002'
