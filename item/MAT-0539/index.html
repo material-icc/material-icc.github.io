@@ -528,4 +528,129 @@
     iniciar();
   }
 
+})();</script><script>(function () {
+  "use strict";
+
+  const observadores = new WeakMap();
+
+  function mostrarAutores(raiz) {
+    const coleccion = window.MIRLA_COLLECTION_DATA;
+
+    if (!coleccion || !Array.isArray(coleccion.items)) {
+      return;
+    }
+
+    const porId = new Map();
+    const porTitulo = new Map();
+
+    coleccion.items.forEach(function (libro) {
+      if (libro.pid) {
+        porId.set(String(libro.pid), libro);
+      }
+
+      if (libro.label) {
+        porTitulo.set(
+          String(libro.label).trim().toLowerCase(),
+          libro
+        );
+      }
+    });
+
+    raiz.querySelectorAll(".preview-item").forEach(
+      function (tarjeta) {
+
+        const titulo = tarjeta.querySelector(".item-title");
+
+        if (!titulo) return;
+
+        if (titulo.querySelector(".material-autor")) {
+          return;
+        }
+
+        const enlace = tarjeta.querySelector(
+          'a[href*="/item/"]'
+        );
+
+        let libro = null;
+
+        if (enlace) {
+          const coincidencia = enlace.href.match(
+            /\/item\/([^/?#]+)/
+          );
+
+          if (coincidencia) {
+            libro = porId.get(
+              decodeURIComponent(coincidencia[1])
+            );
+          }
+        }
+
+        if (!libro) {
+          libro = porTitulo.get(
+            titulo.textContent.trim().toLowerCase()
+          );
+        }
+
+        if (!libro || !libro["Autoría"]) return;
+
+        const autor = document.createElement("span");
+
+        autor.className = "material-autor";
+        autor.textContent = " / " + libro["Autoría"];
+
+        autor.style.font = "inherit";
+        autor.style.color = "inherit";
+
+        titulo.appendChild(autor);
+      }
+    );
+  }
+
+  function conectarMirla() {
+    document.querySelectorAll("mirla-index").forEach(
+      function (componente) {
+
+        const raiz = componente.shadowRoot;
+
+        if (!raiz) return;
+
+        mostrarAutores(raiz);
+
+        if (observadores.has(componente)) {
+          return;
+        }
+
+        const observador = new MutationObserver(function () {
+          mostrarAutores(raiz);
+        });
+
+        observador.observe(raiz, {
+          childList: true,
+          subtree: true
+        });
+
+        observadores.set(componente, observador);
+      }
+    );
+  }
+
+  function iniciar() {
+    conectarMirla();
+
+    const observadorPagina = new MutationObserver(
+      conectarMirla
+    );
+
+    observadorPagina.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", iniciar);
+  } else {
+    iniciar();
+  }
+
 })();</script></body></html>
